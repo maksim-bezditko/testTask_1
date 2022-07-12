@@ -3,8 +3,10 @@
 
 	<head>
 		<title>Page Title</title>
-		<link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+		<link rel="stylesheet" href="./css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="./assets/Logo.svg">
 	</head>
 
 	<body>
@@ -12,14 +14,14 @@
 			<header class="header">
 				<div class="header__top-line"></div>
 				<div class="header__bottom-line">
-					<div class="container">
+					<div class="container ">
 						<div class="header__bottom-line-inner inner">
 							<div class="inner__logo">
-								<a href=""><img src="assets/Logo.svg" alt="logo"></a>
+								<a href=""><img src="../assets/Logo.svg" alt="logo"></a>
 							</div>
 							<div class="inner__buttons">
-								<a href="#users"><button class="button inner__buttons-button">Users</button></a>
-								<a href="#"><button class="button inner__buttons-button">Sign up</button></a>
+								<button class="button inner__buttons-button">Users</button>
+								<button class="button inner__buttons-button">Sign up</button>
 							</div>
 						</div>
 					</div>
@@ -36,21 +38,32 @@
 								What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.
 							</div>
 							<div class="poster-inner__button-container">
-								<a href="#"><button class="button poster-inner__button">Sign up</button></a>
+								<button class="button poster-inner__button">Sign up</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</main>
 			<section id="users" class="get">
-				<div class="container">
+				<div class="container users__container">
 					<div class="get__heading">
 						Working with GET request
 					</div>
 					<div class="get__users users">
 						<div class="users__item">
 							<div class="users__item-avatar">
-								<img src="assets/avatar.png" alt="avatar">
+								<img src="../assets/avatar.png" alt="avatar">
+							</div>
+							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis voluptatem magnam tempora! Minus ex obcaecati et earum distinctio quis adipisci, facilis aperiam veniam fugiat temporibus natus impedit eum ipsa inventore.</p>
+							<div class="get__users-additional additional">
+								<p class="additional__position">Lead Independent Director</p>
+								<p class="additional__email">frontend_develop@gmail.com</p>
+								<p class="additional__email">+38 (098) 278 44 24</p>
+							</div>
+						</div>
+						<div class="users__item">
+							<div class="users__item-avatar">
+								<img src="../assets/avatar.png" alt="avatar">
 							</div>
 							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
 							<div class="get__users-additional additional">
@@ -61,7 +74,7 @@
 						</div>
 						<div class="users__item">
 							<div class="users__item-avatar">
-								<img src="assets/avatar.png" alt="avatar">
+								<img src="../assets/avatar.png" alt="avatar">
 							</div>
 							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
 							<div class="get__users-additional additional">
@@ -72,7 +85,29 @@
 						</div>
 						<div class="users__item">
 							<div class="users__item-avatar">
-								<img src="assets/avatar.png" alt="avatar">
+								<img src="../assets/avatar.png" alt="avatar">
+							</div>
+							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
+							<div class="get__users-additional additional">
+								<p class="additional__position">Lead Independent Director</p>
+								<p class="additional__email">frontend_develop@gmail.com</p>
+								<p class="additional__email">+38 (098) 278 44 24</p>
+							</div>
+						</div>
+						<div class="users__item">
+							<div class="users__item-avatar">
+								<img src="../assets/avatar.png" alt="avatar">
+							</div>
+							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
+							<div class="get__users-additional additional">
+								<p class="additional__position">Lead Independent Director</p>
+								<p class="additional__email">frontend_develop@gmail.com</p>
+								<p class="additional__email">+38 (098) 278 44 24</p>
+							</div>
+						</div>
+						<div class="users__item">
+							<div class="users__item-avatar">
+								<img src="../assets/avatar.png" alt="avatar">
 							</div>
 							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
 							<div class="get__users-additional additional">
@@ -83,12 +118,12 @@
 						</div>
 					</div>
 					<div class="get__button">
-						<a href="#"><button class="button get__button-item">Show more</button></a>
+						<button class="button get__button-item">Show more</button>
 					</div>
 				</div>
 			</section>
 		</div>
-
+		<script src="./dist/bundle.js"></script>
 	</body>
 
 </html>
