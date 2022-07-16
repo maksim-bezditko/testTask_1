@@ -2,14 +2,36 @@
 <html>
 
 	<head>
-		<title>Page Title</title>
-		<link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+		<title>Test Task</title>
 		<link rel="stylesheet" href="./css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="./assets/Logo.svg">
 	</head>
 
-	<body>
+	<body class="unselectable">
+		<template id="card-template">
+			<div class="card">
+			  <div class="header">
+				 <img class="skeleton"/>
+				 <div class="title" data-title>
+					<div class="skeleton skeleton-text"></div>
+					<div class="skeleton skeleton-text"></div>
+				 </div>
+			  </div>
+			  <div data-body>
+				 <div class="skeleton skeleton-text"></div>
+				 <div class="skeleton skeleton-text"></div>
+				 <div class="skeleton skeleton-text"></div>
+				 <div class="skeleton skeleton-text"></div>
+			  </div>
+			</div>
+		 </template>
+
+
+		<div class="preloader">
+			<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+	  </div>
+	  
 		<div class="page">
 			<header class="header">
 				<div class="header__top-line"></div>
@@ -17,11 +39,11 @@
 					<div class="container ">
 						<div class="header__bottom-line-inner inner">
 							<div class="inner__logo">
-								<a href=""><img src="../assets/Logo.svg" alt="logo"></a>
+								<a href=""><img src="./assets/Logo.svg" alt="logo"></a>
 							</div>
 							<div class="inner__buttons">
-								<button class="button inner__buttons-button">Users</button>
-								<button class="button inner__buttons-button">Sign up</button>
+								<button id="users" class="button inner__buttons-button">Users</button>
+								<button id="signup" class="button inner__buttons-button">Sign up</button>
 							</div>
 						</div>
 					</div>
@@ -38,90 +60,90 @@
 								What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.
 							</div>
 							<div class="poster-inner__button-container">
-								<button class="button poster-inner__button">Sign up</button>
+								<button id="signup" class="button poster-inner__button">Sign up</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</main>
-			<section id="users" class="get">
+			<section class="get">
+				<div class="get__heading">
+					Working with GET request
+				</div>
 				<div class="container users__container">
-					<div class="get__heading">
-						Working with GET request
-					</div>
 					<div class="get__users users">
-						<div class="users__item">
-							<div class="users__item-avatar">
-								<img src="../assets/avatar.png" alt="avatar">
-							</div>
-							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis voluptatem magnam tempora! Minus ex obcaecati et earum distinctio quis adipisci, facilis aperiam veniam fugiat temporibus natus impedit eum ipsa inventore.</p>
-							<div class="get__users-additional additional">
-								<p class="additional__position">Lead Independent Director</p>
-								<p class="additional__email">frontend_develop@gmail.com</p>
-								<p class="additional__email">+38 (098) 278 44 24</p>
-							</div>
-						</div>
-						<div class="users__item">
-							<div class="users__item-avatar">
-								<img src="../assets/avatar.png" alt="avatar">
-							</div>
-							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
-							<div class="get__users-additional additional">
-								<p class="additional__position">Lead Independent Director</p>
-								<p class="additional__email">frontend_develop@gmail.com</p>
-								<p class="additional__email">+38 (098) 278 44 24</p>
-							</div>
-						</div>
-						<div class="users__item">
-							<div class="users__item-avatar">
-								<img src="../assets/avatar.png" alt="avatar">
-							</div>
-							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
-							<div class="get__users-additional additional">
-								<p class="additional__position">Lead Independent Director</p>
-								<p class="additional__email">frontend_develop@gmail.com</p>
-								<p class="additional__email">+38 (098) 278 44 24</p>
-							</div>
-						</div>
-						<div class="users__item">
-							<div class="users__item-avatar">
-								<img src="../assets/avatar.png" alt="avatar">
-							</div>
-							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
-							<div class="get__users-additional additional">
-								<p class="additional__position">Lead Independent Director</p>
-								<p class="additional__email">frontend_develop@gmail.com</p>
-								<p class="additional__email">+38 (098) 278 44 24</p>
-							</div>
-						</div>
-						<div class="users__item">
-							<div class="users__item-avatar">
-								<img src="../assets/avatar.png" alt="avatar">
-							</div>
-							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
-							<div class="get__users-additional additional">
-								<p class="additional__position">Lead Independent Director</p>
-								<p class="additional__email">frontend_develop@gmail.com</p>
-								<p class="additional__email">+38 (098) 278 44 24</p>
-							</div>
-						</div>
-						<div class="users__item">
-							<div class="users__item-avatar">
-								<img src="../assets/avatar.png" alt="avatar">
-							</div>
-							<p class="users__item-name">Salvador Stewart Flynn Thomas Salva Salve...</p>
-							<div class="get__users-additional additional">
-								<p class="additional__position">Lead Independent Director</p>
-								<p class="additional__email">frontend_develop@gmail.com</p>
-								<p class="additional__email">+38 (098) 278 44 24</p>
-							</div>
-						</div>
 					</div>
 					<div class="get__button">
-						<button class="button get__button-item">Show more</button>
+						<button id="more" class="button get__button-item">Show more</button>
 					</div>
 				</div>
 			</section>
+			<section id="post" class="post">
+				<div class="initial">
+					<div class="get__heading post__heading">
+						Working with POST request
+					</div>
+					<div class="container post__container">	
+						<div class="post__form-wrapper">
+							<form class="post__form" action="#">
+							<fieldset>
+								<legend></legend>
+								<input class="post__name" required type="text" placeholder="Your name" name="name" tabindex="1">
+							</fieldset>
+							<fieldset>
+								<legend></legend>
+								<input class="post__email" required type="email" placeholder="Email" name="email" tabindex="2">
+							</fieldset>
+							<fieldset>
+								<legend></legend>
+								<input class="post__phone" required type="phone" placeholder="Phone" name="phone" tabindex="3">
+							</fieldset>
+							<fieldset id="noborder">
+								<div data-for="position">
+									<p class="select">Select your position</p>
+									<div>
+										<input type="radio" id="front" required name="position" value="1" tabindex="4"><label for="front">Security</label>
+									</div>
+									<div>
+										<input type="radio" id="back" required name="position" value="2"><label for="back">Designer</label>
+									</div>
+									<div>
+										<input type="radio" id="designer" required name="position" value="3"><label for="designer">Content manager</label>
+									</div>
+									<div>
+										<input type="radio" id="QA" required name="position" value="4"><label for="QA">Lawyer</label>
+									</div>
+								</div>
+							</fieldset>
+							<div class="post__file">
+								<input class="post__item" required type="file" tabindex="5" id="file" accept="image/jpeg, image/jpg"><label for="file">Upload</label>
+								<input class="post__itemName" type="text" disabled required placeholder="Upload Your Photo"> 
+							</div>
+							<div class="post__button">
+								<button type="submit" id="submit" class="button post__submitButton">Submit</button>
+							</div>
+	
+							</form>
+						</div>				
+						<!-- <div class="get__button">
+							<button class="button">Sign up</button>
+						</div> -->
+					</div>
+				</div>
+				<div class="then hide">
+					<div class="get__heading post__heading">
+						User successfully registered
+					</div>
+					<div class="image-wrapper">
+						<img src="./assets/success-image.svg" alt="succes">
+					</div>
+				</div>
+			</section>
+			<footer class="footer">
+				<div class="container footer__text">
+					&#169; abz.agency specially for the test task
+				</div>
+			</footer>
 		</div>
 		<script src="./dist/bundle.js"></script>
 	</body>
