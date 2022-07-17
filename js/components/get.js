@@ -1,5 +1,3 @@
-import showMore from "./services/services";
-
 export default function renderUsers() {
 	let currentPage = 1;
 
@@ -26,25 +24,26 @@ export default function renderUsers() {
 	}
 	
 	function showMore(parentSelector, page) {
-		// const grid = document.querySelector('.users');
-	
-		// const cardTemplate = document.getElementById('card-template');
-		// for (let i = 0; i < 6; i++) {
-		//   grid.append(cardTemplate.content.cloneNode(true))
-		// }
-	
-		
-		button.textContent = `loading...`;
-		
+		button.classList.add("hide")
+
+		const preloader = document.querySelector(".preloader__template").content.cloneNode(true);
 	
 		const parent = document.querySelector(parentSelector);
+
+		parent.append(preloader);
+
 	
 		getJSONFromPage(page).then((data) => {
 			const count = data.total_users;
 			button.textContent = "show more"
+			for (let i = 0; i < parent.children.length; i++) {
+				if (i === parent.children.length - 1) {
+					parent.children[i].remove()
+				}
+			}
+			button.classList.remove("hide")
 	
 			data.users.forEach((user) => {
-	
 				const elem = document.createElement("div");
 				elem.classList.add("users__item")
 	
@@ -168,8 +167,6 @@ export default function renderUsers() {
 		return await response.json()
 	}
 
-	// console.log(await getToken())
-
 	getToken()
 	function postData() {
 		const form = document.querySelector('form')
@@ -183,15 +180,18 @@ export default function renderUsers() {
 					id = item.value;
 				}
 			})
-			//upload btn
+
+			const email = document.querySelector("[name='email']").value;
+			const phone = document.querySelector("[name='phone']").value;
+			const name = document.querySelector("[name='name']").value;
+			const photo = document.querySelector("#file").files[0];
 
 			formData.append('position_id', id); 
-			formData.append('name', document.querySelector("[name='name']").value); 
-			formData.append('email', document.querySelector("[name='email']").value); 
-			formData.append('phone', document.querySelector("[name='phone']").value); 
-			formData.append('photo', uploadBtn.files[0]);
+			formData.append('name', name); 
+			formData.append('email', email); 
+			formData.append('phone', phone); 
+			formData.append('photo', photo);
 			getToken().then(data => {
-				console.log(data.token)
 				fetch("https://frontend-test-assignment-api.abz.agency/api/v1/users", {
 					method: "post",
 					headers: {
@@ -230,5 +230,67 @@ export default function renderUsers() {
 		});
 	}
 	postData()
+
+	function validateName() {
+		const name = document.querySelector("[name='name']").value;
+		const item = document.querySelector("[name='name']");
+
+		if (name.length > 60 || name.length < 2 && name.length ==! 0) {
+			item.parentElement.style.border = "1px solid red";
+			item.previousElementSibling.style.color = "red";
+			item.previousElementSibling.textContent = item.getAttribute("placeholder");
+		} else {
+			item.parentElement.style.border = "1px solid #D0CFCF";
+			item.previousElementSibling.style.color = "";
+			item.previousElementSibling.textContent = "";
+		}
+	}
+	
+	function validateEmail() {
+		const email = document.querySelector("[name='email']").value;
+		const item = document.querySelector("[name='email']");
+		const regex = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/g;
+
+		if (!regex.test(email) && email.length !== 0) {
+			item.parentElement.style.border = "1px solid red";
+			item.previousElementSibling.style.color = "red";
+			item.previousElementSibling.textContent = item.getAttribute("placeholder");
+		} else {
+			item.parentElement.style.border = "1px solid #D0CFCF";
+			item.previousElementSibling.style.color = "";
+			item.previousElementSibling.textContent = "";
+		}
+	}
+
+
+
+	function validatePhone() {
+		const phone = document.querySelector("[name='phone']").value;
+		const item = document.querySelector("[name='phone']");
+		const regex = /^[\+]{0,1}380([0-9]{9})$/g;
+
+		if (!regex.test(phone) && phone.length !== 0) {
+			item.parentElement.style.border = "1px solid red";
+			item.previousElementSibling.style.color = "red";
+			item.previousElementSibling.textContent = item.getAttribute("placeholder");
+		} else {
+			item.parentElement.style.border = "1px solid #D0CFCF";
+			item.previousElementSibling.style.color = "";
+			item.previousElementSibling.textContent = "";
+		}
+	}
+
+	document.querySelector("[name='name']").addEventListener("input", () => {
+		validateName()
+	})
+	document.querySelector("[name='phone']").addEventListener("input", () => {
+		validatePhone()
+	})
+	document.querySelector("[name='email']").addEventListener("input", () => {
+		validateEmail()
+	})
+	
+
+
 	
 }

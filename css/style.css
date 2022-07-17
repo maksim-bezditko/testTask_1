@@ -375,6 +375,17 @@ button:hover {
 	transition: all 0.5s ease-out 0s;
 }
 
+.preloader-1 {
+	width: 100%;
+	height: 100%;
+	background-color: #F8F8F8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.5s ease-out 0s;
+
+}
+
 .lds-ring {
 	display: inline-block;
 	position: relative;
@@ -416,7 +427,7 @@ button:hover {
 	padding-top: 140px;
 }
 fieldset {
-	width: 380px;
+	width: 100%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -424,6 +435,7 @@ fieldset {
 	border: 1px solid #D0CFCF;
 	border-radius: 4px;
 	padding: 14px 16px;
+  transition: all 0.1s ease 0s;
 }
 fieldset, .post__form > div {
 	margin-top: 50px;
@@ -461,7 +473,7 @@ fieldset, .post__form > div {
 	width: 100%;
 }
 legend {
-	transition: all 0.3s ease 0.3s;
+	transition: all 0.1s ease 0s;
 	font-family: 'Nunito';
 	font-weight: 500;
 	font-size: 12px;
@@ -511,7 +523,7 @@ legend {
 .post__file {
   padding: 0;
   height: 54px;
-  width: 380px;
+  width: 100%;
   display: flex;
 }
 [for="file"] {
